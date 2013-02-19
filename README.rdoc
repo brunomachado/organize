@@ -1,0 +1,21 @@
+== Organize
+
+Aplicativo que auxilia na organização e compartilhamento de conteúdo entre professor e aluno.
+
+Essa ferramenta buscar oferecer os seguintes benefícios ao aluno:
+
+* Ter um espaço de fácil acesso para acessar todos os seus materiais, organizados por disciplinas/professor
+* Selecionar e priorizar quais materiais serão estudados
+* Ter uma descrição sobre o conteúdo do material
+* Avaliar um material de acordo com a importância do material através de notas
+* Avaliar o tempo necessário para estudar um material
+* Compartilhar material com outros alunos
+* Comentar sobre os materiais que existem
+
+Já o professor pode aproveitá-la para os seguintes pontos:
+
+* Ter um espaço para consultar suas referências e organizá-las
+* Salvar um material que está na web para servir como referência
+* Compartilhar o material com os alunos
+* Receber a opinião dos alunos sobre o material compartilhado
+
