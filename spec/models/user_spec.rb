@@ -9,6 +9,7 @@ describe User do
   end
 
   context "associations" do
-    it { should have_many :links }
+    it { should have_many :contents }
+    it { should have_many(:user_content_associations).dependent :destroy }
   end
 end
