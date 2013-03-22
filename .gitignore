@@ -2,6 +2,7 @@
 db/*.sqlite3
 log/*.log
 tmp/
-.swp
+.rspec
+*.swp
 bin/
 db/schema.rb
