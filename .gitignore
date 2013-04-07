@@ -4,5 +4,6 @@ log/*.log
 tmp/
 .rspec
 *.swp
+.DS_Store
 bin/
 db/schema.rb
