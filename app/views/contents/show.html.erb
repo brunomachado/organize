@@ -8,7 +8,7 @@
     <li><span class="icon-star-full-blue_16_18 show text-replacement">Estrela</span></li>
     <li><span class="icon-star-full-blue_16_18 show text-replacement">Estrela</span></li>
   </ul>
-  <a class="button-success pull-right" href="#">Sugerir como link da disciplina</a>
+  <%= link_to "Sugerir como link da discplina", content_suggest_for_path(content_id: params[:id], space_id: 1), class: "button-success pull-right", method: :post%>
 </div>
 <hr class="list-separator">
 <div class="content-section clearfix">
