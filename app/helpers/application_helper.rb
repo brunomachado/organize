@@ -14,4 +14,12 @@ module ApplicationHelper
       space_contents_path
     end
   end
+
+  def url_new
+    if params[:user_id]
+      new_user_content_path
+    else
+      new_space_content_path
+    end
+  end
 end

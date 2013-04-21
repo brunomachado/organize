@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 gem 'factory_girl_rails'
 gem 'sqlite3'
 gem 'jquery-rails', '~> 2.0.3'
+gem 'simple-navigation'
 
 group :test do
   gem 'rspec-rails'

@@ -115,6 +115,8 @@ GEM
     shoulda-matchers (1.5.4)
       activesupport (>= 3.0.0)
       bourne (~> 1.3)
+    simple-navigation (3.10.1)
+      activesupport (>= 2.3.2)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -140,4 +142,5 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   shoulda-matchers
+  simple-navigation
   sqlite3
