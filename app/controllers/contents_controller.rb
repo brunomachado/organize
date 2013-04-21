@@ -1,10 +1,11 @@
-class ContentsController < ActionController::Base
+class ContentsController < ApplicationController
   def index
-    @user = User.find(params[:user_id].to_s)
-    @contents = @user.contents
-
-    respond_to do |format|
-      format.html { render :layout => 'application' }
+    if params[:user_id]
+      @user = User.find(params[:user_id].to_s)
+      @contents = @user.contents
+    elsif params[:space_id]
+      @space = Space.find(params[:space_id].to_s)
+      @contents = @space.contents
     end
   end
 end

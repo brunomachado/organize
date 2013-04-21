@@ -19,6 +19,10 @@ Organize::Application.routes.draw do
     resources :contents, only: [:index]
   end
 
+  resources :spaces do
+    resources :contents, only: [:index]
+  end
+
   # Sample resource route with options:
   #   resources :products do
   #     member do
