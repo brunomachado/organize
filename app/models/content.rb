@@ -11,6 +11,8 @@ class Content < ActiveRecord::Base
   has_many :user_content_associations, dependent: :destroy
   has_many :users, through: :user_content_associations
 
+  has_many :comments
+
   def suggest!
     self.space_content_association.update_attributes({ status: 'suggested' })
   end

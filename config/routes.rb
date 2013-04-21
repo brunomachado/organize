@@ -28,6 +28,9 @@ Organize::Application.routes.draw do
     resources :contents, only: [:index, :new, :create]
   end
 
+  resources :comments, only: [:create]
+  post :answer, "comments#answer"
+
   # Sample resource route with options:
   #   resources :products do
   #     member do
