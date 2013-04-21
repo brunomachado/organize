@@ -20,7 +20,6 @@
         <%= f.label :link, "Link" %>:
       </div>
       <div class="controls span6">
-        <%# TODO: Usar embedly para encontrar o título e descrição do link. %>
         <%= f.text_field :link, :placeholder => "Cole o link aqui" %>
         <%= concave_errors_for(f.object, :link) %>
       </div>

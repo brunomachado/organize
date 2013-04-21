@@ -36,3 +36,40 @@ $.cachedScript("http://use.typekit.com/lpo4rgu.js").done(function() {
     $(".typekit-badge").css("left", "0");
   }catch(e){}
 });
+
+$(function() {
+  // Testa se uma stirng é uma URL.
+  var validURL = function validURL(str) {
+    var pattern = new RegExp('^(https?:\\/\\/)?((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|((\\d{1,3}\\.){3}\\d{1,3}))(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*(\\?[;&a-z\\d%_.~+=-]*)?(\\#[-a-z\\d_]*)?$','i');
+    if(!pattern.test(str)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  // Preenche os campos de título e descrição se não estiverem preenchidos e existir dados do embedly.
+  var $contentLink = $("#content_link");
+  $contentLink.on("keyup", function() {
+    var inputValue = $(this).val();
+
+    if (validURL(inputValue)) {
+      $.ajax({
+        cache: false,
+        url: "http://api.embed.ly/1/oembed?key=8a81dcc53f774d599d80f7ccfe7aca96&url=" + inputValue,
+        dataType: "jsonp",
+        success: function(json) {
+          var $contentTitle = $("#content_name");
+          if ($contentTitle.val() === "" && json.title !== null) {
+            $contentTitle.val(json.title);
+          }
+
+          var $contentDescription = $("#content_description");
+          if ($contentDescription.val() === "" && json.description !== null) {
+            $contentDescription.val(json.description);
+          }
+        }
+      });
+    }
+  });
+});
