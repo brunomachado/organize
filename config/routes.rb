@@ -16,11 +16,11 @@ Organize::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :users do
-    resources :contents, only: [:index]
+    resources :contents, only: [:index, :new, :create]
   end
 
   resources :spaces do
-    resources :contents, only: [:index]
+    resources :contents, only: [:index, :new, :create]
   end
 
   # Sample resource route with options:

@@ -1,0 +1,16 @@
+<%= form_for(@content, url: url_form) do |f| %>
+  <%= f.label :name, 'Nome' %>:
+  <%= f.text_field :name %><br />
+  <%= concave_errors_for(f.object, :name) %>
+  <%= f.label :link, 'Link' %>:
+  <%= f.text_field :link %><br />
+  <%= concave_errors_for(f.object, :link) %>
+  <%= f.label :kind, 'Tipo' %>:
+  <%= f.text_field :kind %><br />
+  <%= concave_errors_for(f.object, :kind) %>
+  <%= f.label :study_estimated_time, 'Tempo estimado de estudo' %>:
+  <%= f.text_field :study_estimated_time %><br />
+  <%= f.label :description, 'Descrição' %>:
+  <%= f.text_area :description %><br />
+  <%= f.submit %>
+<% end %>
