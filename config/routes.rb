@@ -29,7 +29,7 @@ Organize::Application.routes.draw do
   end
 
   resources :comments, only: [:create]
-  post :answer, "comments#answer"
+  post :answer, action: "comments#answer"
 
   # Sample resource route with options:
   #   resources :products do

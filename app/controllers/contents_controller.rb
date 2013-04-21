@@ -5,7 +5,7 @@ class ContentsController < ApplicationController
       @contents = @user.contents
     elsif params[:space_id]
       @space = Space.find(params[:space_id].to_s)
-      @contents = @space.suggestions
+      @contents = @space.contents
     end
   end
 
