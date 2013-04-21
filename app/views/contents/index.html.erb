@@ -1,13 +1,15 @@
 <%= render :partial => "shared/sub-tabs" %>
 <hr class="list-separator">
-<% @contents.each do |content| %>
-  <li class="list-button-item link-container">
-    <a class="list-button-link link-target icon-text-page-lightblue_16_18-before" href="#"><%= content.link %></a>
-    <div class="list-lecture-info">
-      <span class="wall-stats icon-wall-gray_16_18-before" rel="tooltip" data-original-title="2 comentários">3</span>
-      <span class="stars"><span class="star icon-star-full-gray_8_10"></span><span class="star icon-star-full-gray_8_10"></span><span class="star icon-star-full-gray_8_10"></span><span class="star icon-star-full-gray_8_10"></span><span class="star icon-star-empty-gray_8_10"></span>
-      </span>
-    </div>
-  </li>
-<% end %>
+<ul class="list-button list-subject">
+  <% @contents.each do |content| %>
+    <li class="list-button-item link-container">
+      <a class="list-button-link link-target icon-text-page-lightblue_16_18-before" href="<%= content_path(content) %>"><%= content.name %></a>
+      <div class="list-lecture-info">
+        <span class="wall-stats icon-wall-gray_16_18-before" rel="tooltip" data-original-title="3 comentários">3</span>
+        <span class="stars"><span class="star icon-star-full-gray_8_10"></span><span class="star icon-star-full-gray_8_10"></span><span class="star icon-star-full-gray_8_10"></span><span class="star icon-star-full-gray_8_10"></span><span class="star icon-star-empty-gray_8_10"></span>
+        </span>
+      </div>
+    </li>
+  <% end %>
+</ul>
 <%= render :partial => "shared/pagination" %>

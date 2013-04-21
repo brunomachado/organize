@@ -35,13 +35,12 @@
   color: #6D6E6F;
 }
 
-.stars {
+.content-rating {
   margin: 0;
   padding-top: 9px;
 }
 
-.stars li {
-  list-style-type: none;
+.content-rating li {
   float: left;
   padding-right: 3px;
 }
@@ -51,7 +50,6 @@
 }
 
 .content-details li {
-  list-style-type: none;
   width: 600px;
   color: #6D6E6F;
 }
@@ -63,3 +61,5 @@
 .content-comments {
   color: #B3B3B3;
 }
+
+li { list-style-type: none; }
