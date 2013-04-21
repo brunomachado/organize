@@ -9,6 +9,10 @@ class ContentsController < ApplicationController
     end
   end
 
+  def show
+    @content = Content.find(params[:id].to_s)
+  end
+
   def new
     @content = Content.new
   end
