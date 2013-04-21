@@ -10,3 +10,56 @@
  *
  *= require bootstrap-redu
  */
+
+.header-title {
+  padding: 20px 20px;
+  color: #4DADD6;
+}
+
+.content-section {
+  padding: 10px 20px;
+}
+
+.content-title {
+  padding-bottom: 0;
+}
+
+.content-title .back {
+  margin-bottom: 10px;
+}
+
+.content-title h3 {
+  clear: left;
+  padding-top: 6px;
+  padding-right: 20px;
+  color: #6D6E6F;
+}
+
+.stars {
+  margin: 0;
+  padding-top: 9px;
+}
+
+.stars li {
+  list-style-type: none;
+  float: left;
+  padding-right: 3px;
+}
+
+.content-details {
+  margin: 0;
+}
+
+.content-details li {
+  list-style-type: none;
+  width: 600px;
+  color: #6D6E6F;
+}
+
+.content-details li + li {
+  padding-top: 10px;
+}
+
+.content-comments {
+  color: #B3B3B3;
+}

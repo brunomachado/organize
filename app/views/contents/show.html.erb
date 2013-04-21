@@ -1,0 +1,27 @@
+<div class="content-section content-title clearfix">
+  <a class="button-default pull-left back" href="#">Voltar</a>
+  <h3 class="pull-left"><%= @content.name %></h3>
+  <ul class="stars pull-left">
+    <li><span class="icon-star-full-blue_16_18 show text-replacement">Estrela</span></li>
+    <li><span class="icon-star-full-blue_16_18 show text-replacement">Estrela</span></li>
+    <li><span class="icon-star-full-blue_16_18 show text-replacement">Estrela</span></li>
+    <li><span class="icon-star-full-blue_16_18 show text-replacement">Estrela</span></li>
+    <li><span class="icon-star-full-blue_16_18 show text-replacement">Estrela</span></li>
+  </ul>
+  <a class="button-success pull-right" href="#">Sugerir como link da disciplina</a>
+</div>
+<hr class="list-separator">
+<div class="content-section clearfix">
+  <ul class="content-details">
+    <li class="icon-file-lightblue_16_18-before"><a href="#"><%= @content.link %></a></li>
+    <% if @content.description %>
+      <li><span class="icon-doubt-topic-lightblue_16_18-before show text-replacement">Detalhes</span><p>@content.description</p></li>
+    <% end %>
+    <li class="icon-favorite-lightblue_16_18-before"><%= @content.study_estimated_time or 'Tempo não informado' %></li>
+  </ul>
+</div>
+<hr class="list-separator">
+<div class="content-section content-comments clearfix">
+  <h6 class="icon-comment-gray_16_18-before">Comentários</h6>
+</div>
+
