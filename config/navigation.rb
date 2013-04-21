@@ -15,13 +15,15 @@ SimpleNavigation::Configuration.run do |navigation|
       class: "tab",
       link: { class: "tab-title icon-profile-lightblue_16_18-before",
               title: "Meus links" },
-      details: { text: 'Todos seus links', class: 'tab-sub-title legend' }
+      details: { text: 'Todos seus links', class: 'tab-sub-title legend' } do
+
+      end
     primary.item :space_links, 'Disciplina', space_contents_path(1),
       class: "tab",
       link: { class: "tab-title icon-space-lightblue_16_18-before",
               title: "Disciplina" }
     # :if => Proc.new { current_user.admin? }
-    primary.item :new_link, 'Adicionar link', url_new,
+    primary.item :new_link, 'Adicionar link', new_user_content_path(1),
       class: "tab",
       link: { class: "tab-title icon-file-lightblue_16_18-before",
               title: "Disciplina" }
