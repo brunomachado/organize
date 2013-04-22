@@ -45,7 +45,11 @@ class ContentsController < ApplicationController
       @content.suggest!
     end
 
-    redirect_to space_contents_path(1)
+    respond_to do |format|
+      format.js do
+        render 'contents/confirm_suggest'
+      end
+    end
   end
 
   def add_to
