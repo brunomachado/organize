@@ -39,13 +39,13 @@ class ReduClient
 
     selection = []
     unless body.empty?
-      selection = response.body.select{ |item| item["id"] == user_uid }
+      selection = body.select{ |item| item["id"] == @user_uid }
     end
 
     if selection.empty?
-      User.find_by_uid(@user_uid).update_attributes({ last_name: "teacher" })
+      User.find_by_uid(@user_uid).update_attributes({ role: "teacher" })
     else
-      User.find_by_uid(@user_uid).update_attributes({ last_name: "member" })
+      User.find_by_uid(@user_uid).update_attributes({ role: "member" })
     end
   end
 
