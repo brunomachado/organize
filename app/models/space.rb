@@ -6,4 +6,6 @@ class Space < ActiveRecord::Base
     conditions: "space_content_associations.status = 'accepted'"
   has_many :suggestions, through: :space_content_associations, source: :content,
     conditions: "space_content_associations.status = 'suggested'"
+
+  attr_accessible :uid, :name
 end

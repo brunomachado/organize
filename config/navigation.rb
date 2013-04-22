@@ -11,14 +11,14 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.dom_class = 'tabs'
     primary.selected_class = 'tab-active'
 
-    primary.item :my_links, 'Meus links', user_contents_path(1),
+    primary.item :my_links, 'Meus links', contents_path,
       class: "tab",
       link: { class: "tab-title icon-profile-lightblue_16_18-before",
               title: "Meus links" },
       details: { text: 'Todos seus links', class: 'tab-sub-title legend' } do
 
       end
-    primary.item :space_links, 'Disciplina', space_contents_path(1),
+    primary.item :space_links, 'Disciplina', space_contents_path(current_space),
       class: "tab",
       link: { class: "tab-title icon-space-lightblue_16_18-before",
               title: "Disciplina" }
@@ -26,6 +26,6 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :new_link, 'Adicionar link', new_user_content_path(1),
       class: "tab",
       link: { class: "tab-title icon-file-lightblue_16_18-before",
-              title: "Disciplina" }
+              title: "Adicionar link" }
   end
 end
