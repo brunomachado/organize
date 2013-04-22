@@ -1,15 +1,26 @@
 <%= render :partial => "shared/sub-tabs" %>
 <hr class="list-separator">
-<ul class="list-button list-subject">
-  <% @contents.each do |content| %>
-    <li class="list-button-item link-container">
-      <a class="list-button-link link-target icon-text-page-lightblue_16_18-before" href="<%= content_path(content) %>"><%= content.name %></a>
-      <div class="list-lecture-info">
-        <span class="wall-stats icon-wall-gray_16_18-before" rel="tooltip" data-original-title="3 comentários">3</span>
-        <span class="stars"><span class="star icon-star-full-gray_8_10"></span><span class="star icon-star-full-gray_8_10"></span><span class="star icon-star-full-gray_8_10"></span><span class="star icon-star-full-gray_8_10"></span><span class="star icon-star-empty-gray_8_10"></span>
-        </span>
-      </div>
-    </li>
+<div class="content-section">
+  <% if @contents.size > 0 %>
+    <ul class="list-button list-subject">
+      <% @contents.each do |content| %>
+        <li class="list-button-item link-container">
+          <%# TODO: Diferenciar ícone dependendo do tipo de link. %>
+          <%= link_to content.name, content_path(content), :class => "list-button-link link-target icon-text-page-lightblue_16_18-before" %>
+          <div class="list-lecture-info">
+            <%= content_tag(:span, content.comments.size, :rel => "tooltip", :title => pluralize(content.comments.size, "Comentário"), :class => "wall-stats icon-wall-gray_16_18-before") %>
+            <%# TODO: Implementar o rating. %>
+            <span class="stars"><span class="star icon-star-full-gray_8_10"></span><span class="star icon-star-full-gray_8_10"></span><span class="star icon-star-full-gray_8_10"></span><span class="star icon-star-full-gray_8_10"></span><span class="star icon-star-empty-gray_8_10"></span>
+            </span>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <%# TOD: Implementar paginação. %>
+    <%= render :partial => "shared/pagination" %>
+
+  <%# Nenhum link criado. %>
+  <% else %>
+    <%= render "shared/message-block", :type => "info", :close => false, :message => "Você ainda não possui nenhum link. Adicione seu primeiro link clicando no botão abaixo.", :button => link_to("Adicionar link", new_user_content_path, :class => "button-primary") %>
   <% end %>
-</ul>
-<%= render :partial => "shared/pagination" %>
+</div>
