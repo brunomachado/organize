@@ -90,9 +90,12 @@ $(function() {
   $("#content_link,#content_name").on("focusout", function() {
     var $contentLink = $("#content_link");
     var $contentName = $("#content_name");
+    var $submit = $("#new_content input:submit");
 
     if (validator.element($contentLink) && validator.element($contentName)) {
-      $("#new_content input:submit").prop("disabled", false);
+      $submit.prop("disabled", false);
+    } else {
+      $submit.prop("disabled", true);
     }
   });
 });
