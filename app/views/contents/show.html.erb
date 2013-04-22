@@ -13,7 +13,7 @@
 <hr class="list-separator">
 <div class="content-section clearfix">
   <ul class="content-details">
-    <li class="icon-file-lightblue_16_18-before"><a href="#"><%= @content.link %></a></li>
+    <li class="icon-file-lightblue_16_18-before"><a href='http://<%= @content.link %>'><%= @content.link %></a></li>
     <% if @content.description %>
       <li><span class="icon-doubt-topic-lightblue_16_18-before show text-replacement">Detalhes</span><p><%= @content.description %></p></li>
     <% end %>
