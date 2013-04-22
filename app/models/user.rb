@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
       user.token = auth["credentials"]["token"]
     end
   end
+
+  def teacher?
+    self.role == "teacher"
+  end
 end

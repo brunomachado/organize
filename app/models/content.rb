@@ -22,4 +22,8 @@ class Content < ActiveRecord::Base
   def accept!
     self.space_content_association.update_attributes({ status: 'accepted' })
   end
+
+  def belongs_to_space?(space)
+    self.space.id == space.id
+  end
 end
