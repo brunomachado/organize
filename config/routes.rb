@@ -4,7 +4,7 @@ Organize::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root to: "contents#index"
+  root to: "contents#root"
 
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/auth/:provider', :to => 'sessions#create', as: :create_session
@@ -18,17 +18,17 @@ Organize::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  resources :contents, only: [:show, :index] do
+  resources :contents, only: [:show, :index, :new, :create] do
     post :suggest_for
     post :add_to
   end
 
   resources :users do
-    resources :contents, only: [:index, :new, :create]
+    resources :contents, only: [:index]
   end
 
   resources :spaces do
-    resources :contents, only: [:index, :new, :create]
+    resources :contents, only: [:index]
   end
 
   resources :comments, only: [:create]

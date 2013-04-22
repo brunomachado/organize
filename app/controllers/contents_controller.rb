@@ -1,4 +1,8 @@
 class ContentsController < ApplicationController
+  def root
+    redirect_to contents_path
+  end
+
   def index
     if params[:space_id]
       @space = current_space
@@ -19,18 +23,17 @@ class ContentsController < ApplicationController
 
   def create
     @content = Content.new(params[:content])
-    @user = User.find(1)
+    @user = current_user
     @content.owner = @user
 
     if @content.save
-      if params[:user_id]
-        @user.contents << @content
-        redirect_to user_contents_path
-      elsif params[:space_id]
+      if params[:space_id]
         Space.find(params[:space_id].to_s).contents << @content
         @content.accept!
-        redirect_to space_contents_path
+      else
+        @user.contents << @content
       end
+        redirect_to contents_path
     else
       render 'new'
     end
@@ -40,7 +43,7 @@ class ContentsController < ApplicationController
     @content = Content.find(params[:content_id].to_s)
     @space = Space.find(params[:space_id].to_s)
 
-    unless @space.contents.include? @content
+    unless @content.belongs_to_space? @space
       @space.contents << @content
       @content.suggest!
     end

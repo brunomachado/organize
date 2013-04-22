@@ -16,11 +16,11 @@
         </li>
       <% end %>
     </ul>
-    <%# TOD: Implementar paginação. %>
+    <%# TODO: Implementar paginação. %>
     <%= render :partial => "shared/pagination" %>
 
   <%# Nenhum link criado. %>
   <% else %>
-    <%= render "shared/message-block", :type => "info", :close => false, :message => "Você ainda não possui nenhum link. Adicione seu primeiro link clicando no botão abaixo.", :button => link_to("Adicionar link", new_user_content_path, :class => "button-primary") %>
+    <%= render "shared/message-block", :type => "info", :close => false, :message => "Você ainda não possui nenhum link. Adicione seu primeiro link clicando no botão abaixo.", :button => link_to("Adicionar link", new_content_path, :class => "button-primary") %>
   <% end %>
 </div>

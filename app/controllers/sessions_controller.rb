@@ -8,8 +8,7 @@ class SessionsController < BaseController
     Rails.logger.info "Adding #{@user.id} to the session[:user_id]"
     session[:user_id] = @user.id
 
-    redirect_to session[:redirect_to] || root_path
-    session[:redirect_to] = nil
+    redirect_to contents_path
   end
 
   protected
