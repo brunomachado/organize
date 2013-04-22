@@ -12,6 +12,8 @@ class Content < ActiveRecord::Base
   has_many :users, through: :user_content_associations
   has_many :comments
 
+  attr_accessible :space_content_association, :link, :name,
+    :kind, :description, :study_estimated_time
   classy_enum_attr :kind
 
   def suggest!
@@ -23,6 +25,6 @@ class Content < ActiveRecord::Base
   end
 
   def belongs_to_space?(space)
-    self.space.id == space.id
+    self.space.try(:id) == space.id
   end
 end
