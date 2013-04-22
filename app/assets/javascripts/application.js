@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.validate
 //= require jquery_ujs
 //= require modernizr
 //= require jquery.autosize.min
@@ -38,22 +39,34 @@ $.cachedScript("http://use.typekit.com/lpo4rgu.js").done(function() {
 });
 
 $(function() {
-  // Testa se uma stirng é uma URL.
-  var validURL = function validURL(str) {
-    var pattern = new RegExp('^(https?:\\/\\/)?((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|((\\d{1,3}\\.){3}\\d{1,3}))(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*(\\?[;&a-z\\d%_.~+=-]*)?(\\#[-a-z\\d_]*)?$','i');
-    if(!pattern.test(str)) {
-      return false;
-    } else {
-      return true;
+  // Valida os campos.
+  var validator = $("#new_content").validate({
+    rules: {
+      "content[name]": {
+        required: true
+      },
+      "content[link]": {
+        required: true,
+        url: true
+      }
+    },
+    messages: {
+      "content[name]": {
+        required: "O campo de título é obrigatório."
+      },
+      "content[link]": {
+        required: "O campo do link é obrigatório.",
+        url: "Digite um link válido."
+      }
     }
-  }
+  });
 
   // Preenche os campos de título e descrição se não estiverem preenchidos e existir dados do embedly.
   var $contentLink = $("#content_link");
   $contentLink.on("keyup", function() {
     var inputValue = $(this).val();
 
-    if (validURL(inputValue)) {
+    if (validator.element($(this))) {
       $.ajax({
         cache: false,
         url: "http://api.embed.ly/1/oembed?key=8a81dcc53f774d599d80f7ccfe7aca96&url=" + inputValue,
@@ -70,6 +83,16 @@ $(function() {
           }
         }
       });
+    }
+  });
+
+  // Habilita o botão de submissão e os campos estão validados.
+  $("#content_link,#content_name").on("focusout", function() {
+    var $contentLink = $("#content_link");
+    var $contentName = $("#content_name");
+
+    if (validator.element($contentLink) && validator.element($contentName)) {
+      $("#new_content input:submit").prop("disabled", false);
     }
   });
 });

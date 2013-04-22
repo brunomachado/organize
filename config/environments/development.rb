@@ -21,5 +21,10 @@ Organize::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  # Não concatena os assets.
+  config.assets.compress = false
+  config.assets.debug = true
+  config.assets.compile = true
 end
 

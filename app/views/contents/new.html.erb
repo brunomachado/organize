@@ -63,8 +63,7 @@
 
     <div class="row">
       <div class="span9">
-        <%# TODO: Habilitar botão somente quando toda validação por JS passar. %>
-        <%= f.submit "Adicionar", :class => "button-primary pull-right", :rel => "tooltip", :title => "Adicionar o link" %>
+        <%= f.submit "Adicionar", :class => "button-primary pull-right", :rel => "tooltip", :title => "Adicionar o link", :disabled => true %>
         <%= button_tag "Limpar", :type => :reset, :class => "button-default pull-right", :rel => "tooltip", :title => "Limpar os campos do formulário" %>
       </div>
     </div>

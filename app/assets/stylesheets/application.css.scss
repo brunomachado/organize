@@ -11,6 +11,17 @@
  *= require bootstrap-redu
  */
 
+@import "compass/css3/images";
+ // Mixins do UI-components.
+@import "ui-components/mixins";
+// Variáveis do UI-components.
+@import "ui-components/variables";
+
+form label.error {
+  color: $red2;
+  font-size: 11px;
+}
+
 .header-title {
   padding: 20px 20px;
   color: #4DADD6;
