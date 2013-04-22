@@ -50,8 +50,12 @@
 }
 
 .content-details li {
-  width: 600px;
   color: #6D6E6F;
+  clear: both;
+}
+
+.content-details li p {
+  width: 600px;
 }
 
 .content-details li + li {

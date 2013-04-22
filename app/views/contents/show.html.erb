@@ -15,7 +15,7 @@
   <ul class="content-details">
     <li class="icon-file-lightblue_16_18-before"><a href='http://<%= @content.link %>'><%= @content.link %></a></li>
     <% if @content.description %>
-      <li><span class="icon-doubt-topic-lightblue_16_18-before show text-replacement">Detalhes</span><p><%= @content.description %></p></li>
+      <li><span class="icon-doubt-topic-lightblue_16_18-before show text-replacement pull-left">Detalhes</span><p class="pull-left"><%= @content.description %></p></li>
     <% end %>
     <li class="icon-favorite-lightblue_16_18-before"><%= @content.study_estimated_time or 'Tempo não informado' %></li>
   </ul>
