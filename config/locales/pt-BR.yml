@@ -1,0 +1,10 @@
+pt-BR:
+  classy_enum:
+    kind:
+      article: 'Artigo'
+      video: 'Vídeo'
+      document: 'Documento'
+      presentation: 'Apresentação'
+      book: 'Livro'
+      application: 'Aplicação'
+      other: 'Outro'

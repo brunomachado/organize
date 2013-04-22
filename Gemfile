@@ -9,6 +9,7 @@ gem 'factory_girl_rails'
 gem 'sqlite3'
 gem 'jquery-rails', '~> 2.0.3'
 gem 'simple-navigation'
+gem 'classy_enum'
 
 group :test do
   gem 'rspec-rails'

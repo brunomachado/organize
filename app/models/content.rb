@@ -13,6 +13,8 @@ class Content < ActiveRecord::Base
 
   has_many :comments
 
+  classy_enum_attr :kind
+
   def suggest!
     self.space_content_association.update_attributes({ status: 'suggested' })
   end

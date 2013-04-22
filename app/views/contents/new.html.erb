@@ -7,8 +7,7 @@
         <%= f.label :kind, "Tipo de material" %>:
       </div>
       <div class="controls span6">
-        <%# TODO: Definir tipos e transformar em um select options. %>
-        <%= f.text_field :kind %>
+        <%= f.select :kind, options_for_select( Kind.all.collect { |s| [s.text, s] }, :selected => f.object.name) %>
         <span class="legend">Escolha o tipo de material que o link representa</span>
         <%= concave_errors_for(f.object, :kind) %>
       </div>
