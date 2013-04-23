@@ -12,6 +12,12 @@ class ContentsController < ApplicationController
       @user = current_user
       @contents = @user.contents
     end
+
+    if params[:bests]
+      @contents = @contents.find_with_reputation(:rating, :all, order: 'rating desc')
+    else
+      @contents = @contents.order(:created_at).reverse_order
+    end
   end
 
   def show

@@ -23,7 +23,7 @@
           <%= link_to content.name, content_path(content), :class => "list-button-link link-target icon-text-page-lightblue_16_18-before" %>
           <div class="list-lecture-info">
             <%= content_tag(:span, content.comments.size, :rel => "tooltip", :title => pluralize(content.comments.size, "Comentário"), :class => "wall-stats icon-wall-gray_16_18-before") %>
-            <%# TODO: Implementar o rating. %>
+            <%# Rating. %>
             <%= render "shared/content_rating_stars", rating: content.reputation_for(:rating).to_i %>
           </div>
         </li>

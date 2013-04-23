@@ -20,7 +20,7 @@ SimpleNavigation::Configuration.run do |navigation|
         subtabs.selected_class = 'tab-button-active'
 
         subtabs.item :last_updates, "Últimos adicionados", contents_path, class: "tab-button"
-        subtabs.item :bests, "Melhores avaliados", "#", class: "tab-button"
+        subtabs.item :bests, "Melhores avaliados", contents_path(bests: true), class: "tab-button"
         subtabs.item :less_time, "Menor tempo", "#", class: "tab-button"
       end
     primary.item :space_links, 'Disciplina', space_contents_path(current_space),
