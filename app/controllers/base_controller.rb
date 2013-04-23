@@ -51,7 +51,6 @@ class BaseController < ActionController::Base
 
   def log_current_user
     Rails.logger.info "Current loged in user is: #{current_user.to_json}"
-    Rails.logger.info "Current loged in space is: #{current_space.to_json}"
   end
 
   protected

@@ -1,5 +1,6 @@
 class ContentsController < ApplicationController
   def root
+    current_space
     redirect_to contents_path
   end
 
