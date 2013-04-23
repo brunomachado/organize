@@ -1,3 +1,4 @@
+# coding: utf-8
 class Content < ActiveRecord::Base
   validates :name, presence: true
   validates :kind, presence: true
@@ -34,6 +35,10 @@ class Content < ActiveRecord::Base
 
   def belongs_to_space?(space)
     self.space.try(:id) == space.id
+  end
+
+  def belongs_to_user?(user)
+    self.users.include?(user)
   end
 
   def self.is_valid_rating_value?(value)

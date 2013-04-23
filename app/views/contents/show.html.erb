@@ -4,8 +4,14 @@
   <ul class="content-rating pull-left">
     <%= render partial: "stars" %>
   </ul>
-  <%= link_to "Sugerir como link da discplina", content_suggest_for_path(content_id: params[:id]),
-    class: "button-success pull-right", method: :post, remote: true %>
+  <% unless @content.belongs_to_space? current_space %>
+    <%= link_to "Sugerir como link da discplina", content_suggest_for_path(content_id: params[:id]),
+      class: "button-success pull-right", method: :post, remote: true %>
+  <% end %>
+  <% unless @content.belongs_to_user? current_user %>
+    <%= link_to "Adicionar aos Meus Links", content_add_mine_path(content_id: params[:id]),
+      class: "button-success pull-right", method: :post %>
+  <% end %>
 </div>
 <hr class="list-separator">
 <div class="content-section clearfix">

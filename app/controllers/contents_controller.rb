@@ -56,14 +56,25 @@ class ContentsController < ApplicationController
   def suggest_for
     @content = Content.find(params[:content_id].to_s)
     @space = current_space
-    @space.contents << @content
-    @content.suggest!
+
+    unless @content.belongs_to_space? @space
+      @space.contents << @content
+      @content.suggest!
+    end
 
     respond_to do |format|
       format.js do
         render 'contents/confirm_suggest'
       end
     end
+  end
+
+  def add_mine
+    @content = Content.find(params[:content_id].to_s)
+    @user = current_user
+    @user.contents << @content
+
+    redirect_to content_path(@content)
   end
 
   def add_to

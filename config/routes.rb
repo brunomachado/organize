@@ -21,6 +21,7 @@ Organize::Application.routes.draw do
   resources :contents, only: [:show, :index, :new, :create] do
     post :suggest_for
     post :add_to
+    post :add_mine
     post :rate
   end
 
