@@ -95,6 +95,7 @@ GEM
     omniauth-redu (0.0.1)
       omniauth-oauth2
       rails (~> 3.2.2)
+    pg (0.15.1)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -166,6 +167,7 @@ DEPENDENCIES
   factory_girl_rails
   jquery-rails (~> 2.0.3)
   omniauth-redu
+  pg
   rails (= 3.2.13)
   rspec-rails
   sass-rails

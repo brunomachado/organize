@@ -7,16 +7,23 @@ gem 'omniauth-redu'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'factory_girl_rails'
-gem 'sqlite3'
 gem 'jquery-rails', '~> 2.0.3'
 gem 'simple-navigation'
 gem 'classy_enum'
 gem 'activerecord-reputation-system'
 
+group :development do
+  gem 'sqlite3'
+end
+
 group :test do
   gem 'rspec-rails'
   gem 'debugger'
   gem 'shoulda-matchers'
+end
+
+group :production, :staging do
+  gem "pg"
 end
 
 # Use unicorn as the web server
