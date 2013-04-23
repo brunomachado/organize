@@ -33,10 +33,8 @@
       <% end %>
     </ul>
   </div>
-  <%# TODO: Implementar paginação. %>
-  <%= render :partial => "shared/pagination" %>
 
-  <%# Nenhum link criado. %>
+<%# Nenhum link criado. %>
 <% else %>
   <div class="content-section">
     <%= render "shared/message-block", :type => "info", :close => false, :message => "Você ainda não possui nenhum link. Adicione seu primeiro link clicando no botão abaixo.", :button => link_to("Adicionar link", new_content_path, :class => "button-primary") %>
