@@ -2,11 +2,7 @@
   <a class="button-default pull-left back" href="#">Voltar</a>
   <h3 class="pull-left"><%= @content.name %></h3>
   <ul class="content-rating pull-left">
-    <li><span class="icon-star-full-blue_16_18 show text-replacement">Estrela</span></li>
-    <li><span class="icon-star-full-blue_16_18 show text-replacement">Estrela</span></li>
-    <li><span class="icon-star-full-blue_16_18 show text-replacement">Estrela</span></li>
-    <li><span class="icon-star-full-blue_16_18 show text-replacement">Estrela</span></li>
-    <li><span class="icon-star-full-blue_16_18 show text-replacement">Estrela</span></li>
+    <%= render partial: "stars" %>
   </ul>
   <%= link_to "Sugerir como link da discplina", content_suggest_for_path(content_id: params[:id], space_id: current_space), class: "button-success pull-right", method: :post, remote: true %>
 </div>

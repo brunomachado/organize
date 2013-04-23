@@ -15,6 +15,10 @@ class ContentsController < ApplicationController
 
   def show
     @content = Content.find(params[:id].to_s)
+    @app_rating = @content.reputation_for(:rating)
+    @evaluations = @content.evaluators_for(:rating).count
+    @evaluated = @content.has_evaluation?(:rating, current_user)
+    @user_rating = @content.get_rating_by(current_user) if @evaluated
   end
 
   def new
@@ -59,6 +63,20 @@ class ContentsController < ApplicationController
     @content = Content.find(params[:content_id].to_s)
     @content.accept!
 
-    redirect_to space_contents_path(1)
+    redirect_to space_contents_path(current_space)
+  end
+
+  def rate
+    rating = Integer(params[:rating])
+    @content = Content.find(params[:content_id])
+    @content.add_or_update_evaluation(:rating, rating, current_user)
+    @user_rating = rating
+    @content_rating = @content.reputation_for(:rating)
+    @evaluated = true
+    @evaluations = @content.evaluators_for(:rating).count
+
+    respond_to do |format|
+      format.js
+    end
   end
 end

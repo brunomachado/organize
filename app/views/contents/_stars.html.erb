@@ -1,0 +1,24 @@
+<div class="oer-rating">
+  <div class="oer-stars-n-value">
+    <%# Estrelas. %>
+    <ol class="oer-stars<%= " oer-stars-user-rated" %>">
+      <% user_rating = @user_rating.to_i || 0 %>
+      <% index = user_rating || 0 %>
+      <%# Renderiza as estrelas azuis da nota do usuário. %>
+      <% user_rating.times do |n| %>
+        <%= render "star", index: n, type: "blue" %>
+      <% end %>
+      <%# Renderiza as estrelas cinza escuro da média de classificação. %>
+      <% if @content_rating > user_rating %>
+        <% (@content_rating - user_rating).to_i.times do |n| %>
+          <%= render "star", index: index, type: "gray" %>
+          <% index += 1 %>
+        <% end %>
+      <% end %>
+      <%# Renderiza as estrelas cinza claro restantes. %>
+      <% (5 - index).times do |n| %>
+        <%= render "star", index: index, type: "lightgray" %>
+        <% index += 1 %>
+      <% end %>
+    </ol>
+</div>

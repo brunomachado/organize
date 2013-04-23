@@ -11,6 +11,7 @@ gem 'sqlite3'
 gem 'jquery-rails', '~> 2.0.3'
 gem 'simple-navigation'
 gem 'classy_enum'
+gem 'activerecord-reputation-system'
 
 group :test do
   gem 'rspec-rails'

@@ -14,7 +14,11 @@ class Content < ActiveRecord::Base
 
   attr_accessible :space_content_association, :link, :name,
     :kind, :description, :study_estimated_time
+
   classy_enum_attr :kind
+  has_reputation :rating, source: :user, aggregated_by: :average
+  MIN_RATING = 1
+  MAX_RATING = 5
 
   def suggest!
     self.space_content_association.update_attributes({ status: 'suggested' })
@@ -26,5 +30,9 @@ class Content < ActiveRecord::Base
 
   def belongs_to_space?(space)
     self.space.try(:id) == space.id
+  end
+
+  def self.is_valid_rating_value?(value)
+    value.between?(MIN_RATING, MAX_RATING)
   end
 end
