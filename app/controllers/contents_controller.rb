@@ -39,13 +39,14 @@ class ContentsController < ApplicationController
     @content.owner = @user
 
     if @content.save
-      if params[:space_id]
+      if params[:add_link_to_space]
         Space.find(params[:space_id].to_s).contents << @content
         @content.accept!
+        redirect_to space_contents_path(current_space)
       else
         @user.contents << @content
-      end
         redirect_to contents_path
+      end
     else
       render 'new'
     end

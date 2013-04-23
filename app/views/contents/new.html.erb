@@ -62,11 +62,22 @@
       </div>
     </div>
 
+    <% if current_user.teacher? %>
+      <div class="control-group row">
+        <div class="controls span6 offset4">
+          <label class="control-checkbox" rel="tooltip" title="Marcando esta opção o link será adicionado à disciplina ao invés da lista pessoal">
+            <%= check_box_tag(:add_link_to_space) %> Adicionar link à disciplina.
+          </label>
+        </div>
+      </div>
+      <%= hidden_field_tag :space_id, current_space.id %>
+    <% end %>
+
     <%# TODO: Visibilidade. %>
     <%# TODO: Postar link no mural da disciplina. %>
 
-    <div class="row">
-      <div class="span9">
+    <div class="control-group row">
+      <div class="span10">
         <%= f.submit "Adicionar", :class => "button-primary pull-right", :rel => "tooltip", :title => "Adicionar o link", :disabled => true %>
         <%= button_tag "Limpar", :type => :reset, :class => "button-default pull-right", :rel => "tooltip", :title => "Limpar os campos do formulário" %>
       </div>
