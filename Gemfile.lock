@@ -170,7 +170,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.13)
   rspec-rails
-  sass-rails
+  sass-rails (~> 3.2.5)
   shoulda-matchers
   simple-navigation
   sqlite3

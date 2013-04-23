@@ -11,6 +11,8 @@ gem 'jquery-rails', '~> 2.0.3'
 gem 'simple-navigation'
 gem 'classy_enum'
 gem 'activerecord-reputation-system'
+gem 'sass-rails', '~> 3.2.5'
+gem 'compass-rails'
 
 group :development do
   gem 'sqlite3'
@@ -51,7 +53,3 @@ end
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  gem 'sass-rails'
-  gem 'compass-rails'
-end
