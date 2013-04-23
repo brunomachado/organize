@@ -27,6 +27,7 @@
             <%= content_tag(:span, content.comments.size, :rel => "tooltip", :title => pluralize(content.comments.size, "Comentário"), :class => "wall-stats icon-wall-gray_16_18-before") %>
             <%# Rating. %>
             <%= render "shared/content_rating_stars", rating: content.reputation_for(:rating).to_i %>
+            <%= content_tag :span, content.study_estimated_time, :rel => "tooltip", :title => "Tempo estimado de estudo" %>
           </div>
         </li>
       <% end %>

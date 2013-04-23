@@ -58,6 +58,13 @@ $(function() {
         required: "O campo do link é obrigatório.",
         url: "Digite um link válido."
       }
+    },
+    submitHandler: function(form) {
+      var estimatedHour = parseInt($("#study_estimated_time_hour").val());
+      var estimatedMinute = parseInt($("#study_estimated_time_minute").val());
+      var $estimatedTime =  $("#content_study_estimated_time");
+      $estimatedTime.val(estimatedHour * 60 + estimatedMinute);
+      form.submit();
     }
   });
 

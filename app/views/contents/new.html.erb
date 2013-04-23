@@ -3,7 +3,7 @@
 
     <%# Tipo de material. %>
     <div class="control-group row">
-      <div class="control-label span3">
+      <div class="control-label span4">
         <%= f.label :kind, "Tipo de material" %>:
       </div>
       <div class="controls span6">
@@ -15,7 +15,7 @@
 
     <%# Link. %>
     <div class="control-group row">
-      <div class="control-label span3">
+      <div class="control-label span4">
         <%= f.label :link, "Link" %>:
       </div>
       <div class="controls span6">
@@ -26,7 +26,7 @@
 
     <%# Título. %>
     <div class="control-group row">
-      <div class="control-label span3">
+      <div class="control-label span4">
         <%= f.label :name, "Título" %>
       </div>
       <div class="controls span6">
@@ -37,7 +37,7 @@
 
     <%# Descrição. %>
     <div class="control-group row">
-      <div class="control-label span3">
+      <div class="control-label span4">
         <%= f.label :description, "Descrição" %>:
       </div>
       <div class="controls span6">
@@ -47,13 +47,18 @@
 
     <%# Tempo estimado de estudo. %>
     <div class="control-group row">
-      <div class="control-label span3">
+      <div class="control-label span4">
         <%= f.label :study_estimated_time, "Tempo estimado de estudo" %>:
       </div>
       <div class="controls span6">
-        <%# TODO: Procurar um campo melhor para entrada de tempo. %>
-        <%= f.text_field :study_estimated_time %>
+        <div class="row">
+          <%= select_tag(:study_estimated_time_hour, options_for_select((0..12).to_a), :class => "span2") %>
+          <span class="span1 legend time-legend">horas</span>
+          <%= select_tag(:study_estimated_time_minute, options_for_select((0..60).to_a), :class => "span2") %>
+          <span class="span1 legend time-legend">minutos</span>
+        </div>
         <span class="legend">Sugira um tempo médio necessário para estudar conteúdo do link</span>
+        <%= f.hidden_field :study_estimated_time %>
       </div>
     </div>
 

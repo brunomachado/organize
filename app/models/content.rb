@@ -44,4 +44,22 @@ class Content < ActiveRecord::Base
     self.evaluations.where(source_id: user.id, source_type: "User",
                            reputation_name: "rating").first.value
   end
+
+  def study_estimated_time
+    time = read_attribute(:study_estimated_time)
+    hour = time / 60
+    minute = time % 60
+
+    if (hour == 0 && minute == 0)
+      "Não informado"
+    else
+      if hour > 0
+        hour = "#{hour} horas "
+      else
+        hour = ""
+      end
+
+      "#{hour}#{minute} minutos"
+    end
+  end
 end
