@@ -68,9 +68,9 @@
           <label class="control-checkbox" rel="tooltip" title="Marcando esta opção o link será adicionado à disciplina ao invés da lista pessoal">
             <%= check_box_tag(:add_link_to_space) %> Adicionar link à disciplina.
           </label>
+          <%= hidden_field_tag :space_id, current_space.id %>
         </div>
       </div>
-      <%= hidden_field_tag :space_id, current_space.id %>
     <% end %>
 
     <%# TODO: Visibilidade. %>
