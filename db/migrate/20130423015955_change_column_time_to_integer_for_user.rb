@@ -1,9 +1,11 @@
 class ChangeColumnTimeToIntegerForUser < ActiveRecord::Migration
   def self.up
-    change_column :contents, :study_estimated_time, :integer
+    remove_column :contents, :study_estimated_time
+    add_column :contents, :study_estimated_time, :integer
   end
 
   def self.down
-    change_column :contents, :study_estimated_time, :string
+    remove_column :contents, :study_estimated_time
+    add_column :contents, :study_estimated_time, :string
   end
 end

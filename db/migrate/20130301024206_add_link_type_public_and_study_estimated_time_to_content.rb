@@ -1,8 +1,8 @@
 class AddLinkTypePublicAndStudyEstimatedTimeToContent < ActiveRecord::Migration
   def self.up
-    add_column :contents, :link, :String
-    add_column :contents, :type, :String
-    add_column :contents, :study_estimated_time, :String
+    add_column :contents, :link, :string
+    add_column :contents, :type, :string
+    add_column :contents, :study_estimated_time, :string
   end
 
   def self.down

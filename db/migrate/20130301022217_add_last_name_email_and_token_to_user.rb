@@ -1,8 +1,8 @@
 class AddLastNameEmailAndTokenToUser < ActiveRecord::Migration
   def self.up
-    add_column :users, :last_name, :String
-    add_column :users, :email, :String
-    add_column :users, :token, :String
+    add_column :users, :last_name, :string
+    add_column :users, :email, :string
+    add_column :users, :token, :string
   end
 
   def self.down
