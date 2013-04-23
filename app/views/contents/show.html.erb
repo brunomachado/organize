@@ -4,7 +4,8 @@
   <ul class="content-rating pull-left">
     <%= render partial: "stars" %>
   </ul>
-  <%= link_to "Sugerir como link da discplina", content_suggest_for_path(content_id: params[:id], space_id: current_space), class: "button-success pull-right", method: :post, remote: true %>
+  <%= link_to "Sugerir como link da discplina", content_suggest_for_path(content_id: params[:id]),
+    class: "button-success pull-right", method: :post, remote: true %>
 </div>
 <hr class="list-separator">
 <div class="content-section clearfix">

@@ -5,10 +5,11 @@ class ContentsController < ApplicationController
 
   def index
     if params[:space_id]
+      @user = current_user
       @space = current_space
       @contents = @space.contents
+      @suggestions = @space.suggestions
     else
-      @space = current_space
       @user = current_user
       @contents = @user.contents
     end
@@ -52,7 +53,7 @@ class ContentsController < ApplicationController
 
   def suggest_for
     @content = Content.find(params[:content_id].to_s)
-    @space = Space.find(params[:space_id].to_s)
+    @space = current_space
 
     unless @content.belongs_to_space? @space
       @space.contents << @content
@@ -68,9 +69,15 @@ class ContentsController < ApplicationController
 
   def add_to
     @content = Content.find(params[:content_id].to_s)
-    @content.accept!
 
-    redirect_to space_contents_path(current_space)
+    case params[:commit]
+    when "recusar"
+      @content.reject!
+    when "aceitar"
+      @content.accept!
+    end
+
+    render :js => "window.location = '#{ space_contents_path(current_space) }'"
   end
 
   def rate

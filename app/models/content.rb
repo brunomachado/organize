@@ -28,6 +28,10 @@ class Content < ActiveRecord::Base
     self.space_content_association.update_attributes({ status: 'accepted' })
   end
 
+  def reject!
+    self.space_content_association.destroy
+  end
+
   def belongs_to_space?(space)
     self.space.try(:id) == space.id
   end
