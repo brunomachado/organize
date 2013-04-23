@@ -81,6 +81,9 @@ form label.error {
 
 .content-comments {
   color: #B3B3B3;
+  h6 { margin-bottom: 10px; }
+  .post { margin-bottom: 20px }
+  .comment + .comment { margin-top: 5px; }
 }
 
 li { list-style-type: none; }

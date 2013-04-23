@@ -20,15 +20,20 @@
 <hr class="list-separator">
 <div class="content-section content-comments clearfix">
   <h6 class="icon-comment-gray_16_18-before">Comentários</h6>
+  <div class="create-response post">
+    <%= form_for(:comment, url: comments_path) do |f|%>
+      <%= f.text_field :body %><br />
+      <%= hidden_field_tag :content_id, params[:id] %>
+      <div class="status-buttons">
+        <%= f.submit 'Postar', class: 'button-primary pull-right' %>
+      </div>
+    <% end %>
+  </div>
   <% @content.comments.each do |comment| %>
-    <%= comment.body %>
-  <% end %>
-
-  <%= form_for(:comment, url: comments_path) do |f|%>
-    <%= f.label :body, 'Texto' %>:
-    <%= f.text_field :body %><br />
-    <%= hidden_field_tag :content_id, params[:id] %><br />
-    <%= f.submit %>
+    <div class="create-response comment">
+      <b><%= comment.author.name %></b>
+      <p class="post-description"><%= comment.body %></p>
+    </div>
   <% end %>
 </div>
 
