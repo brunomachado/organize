@@ -19,15 +19,25 @@ SimpleNavigation::Configuration.run do |navigation|
         subtabs.dom_class = 'filters'
         subtabs.selected_class = 'filter-active'
 
-        subtabs.item :last_updates, "Últimos adicionados", contents_path, class: "filter"
+        subtabs.item :last_updates, "Últimos adicionados", contents_path, class: "filter",
+          highlights_on: %r(\A/contents\z)
         subtabs.item :bests, "Melhores avaliados", contents_path(bests: true), class: "filter"
         subtabs.item :less_time, "Menor tempo", "#", class: "filter"
       end
     primary.item :space_links, 'Disciplina', space_contents_path(current_space),
       class: "tab",
       link: { class: "tab-title icon-space-lightblue_16_18-before",
-              title: "Disciplina" }
-    # :if => Proc.new { current_user.admin? }
+              title: "Disciplina" } do |subtabs|
+        subtabs.dom_class = 'filters'
+        subtabs.selected_class = 'filter-active'
+
+        subtabs.item :last_updates, "Últimos adicionados",
+          space_contents_path(current_space), class: "filter",
+          highlights_on: %r(spaces/#{current_space.id}/contents\z)
+        subtabs.item :bests, "Melhores avaliados",
+          space_contents_path(current_space, bests: true), class: "filter"
+        subtabs.item :less_time, "Menor tempo", "#", class: "filter"
+      end
     primary.item :new_link, 'Adicionar link', new_content_path,
       class: "tab",
       link: { class: "tab-title icon-file-lightblue_16_18-before",

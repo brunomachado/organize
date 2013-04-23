@@ -15,7 +15,8 @@ class ContentsController < ApplicationController
     end
 
     if params[:bests]
-      @contents = @contents.find_with_reputation(:rating, :all, order: 'rating desc')
+      reputations = Content.find_with_reputation(:rating, :all, order: 'rating desc')
+      @contents = reputations & @contents
     else
       @contents = @contents.order(:created_at).reverse_order
     end
@@ -55,11 +56,8 @@ class ContentsController < ApplicationController
   def suggest_for
     @content = Content.find(params[:content_id].to_s)
     @space = current_space
-
-    unless @content.belongs_to_space? @space
-      @space.contents << @content
-      @content.suggest!
-    end
+    @space.contents << @content
+    @content.suggest!
 
     respond_to do |format|
       format.js do
