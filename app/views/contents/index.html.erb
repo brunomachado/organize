@@ -2,6 +2,20 @@
 <hr class="list-separator">
 <div class="content-section">
   <% if @contents.size > 0 %>
+    <% if @user.teacher? %>
+      <ul class="list-mix suggestions">
+        <% @space.suggestions.each do |suggestion| %>
+          <li class="list-mix-item">
+            <div class="list-mix-inner">
+              <span><%= suggestion.owner.name %> indicou o seguinte conteúdo para a disciplina</span>
+              <%= link_to "Recusar", '#', class: "button-danger pull-right" %>
+              <%= link_to "Aceitar", '#', class: "button-success pull-right" %>
+              <%= link_to suggestion.name, content_path(suggestion) %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
     <ul class="list-button list-subject">
       <% @contents.each do |content| %>
         <li class="list-button-item link-container">

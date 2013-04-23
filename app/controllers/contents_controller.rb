@@ -8,6 +8,7 @@ class ContentsController < ApplicationController
       @space = current_space
       @contents = @space.contents
     else
+      @space = current_space
       @user = current_user
       @contents = @user.contents
     end

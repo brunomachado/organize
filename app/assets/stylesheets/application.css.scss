@@ -78,3 +78,11 @@ form label.error {
 }
 
 li { list-style-type: none; }
+
+.suggestions {
+  .list-mix-inner {
+    padding: 10px;
+    a { display: block; }
+  }
+  .button-success { margin-right: 5px; }
+}
