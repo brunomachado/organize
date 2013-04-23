@@ -22,4 +22,13 @@ module ApplicationHelper
       new_space_content_path
     end
   end
+
+  # Retorna o sujeito: "A disciplina" se ela existir, "Você" caso contrário.
+  def subject(space)
+    if space
+      "A disciplina"
+    else
+      "Você"
+    end
+  end
 end

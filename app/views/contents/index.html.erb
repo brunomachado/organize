@@ -1,23 +1,24 @@
-<%= render :partial => "shared/sub-tabs" %>
-<hr class="list-separator">
-<div class="content-section">
-  <% if @user.teacher? && @space %>
-    <ul class="list-mix suggestions">
-      <% @suggestions.each do |suggestion| %>
-        <li class="list-mix-item" id="<%= suggestion.id %>">
-          <div class="list-mix-inner">
-            <span><%= suggestion.owner.name %> indicou o seguinte conteúdo para a disciplina</span>
-            <%= link_to "Recusar", content_add_to_path(content_id: suggestion, commit: "recusar"),
-              class: "button-danger pull-right", method: :post, remote: true %>
-            <%= link_to "Aceitar", content_add_to_path(content_id: suggestion, commit: "aceitar"),
-              class: "button-success pull-right", method: :post, remote: true %>
-            <%= link_to suggestion.name, content_path(suggestion) %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
-  <% if @contents.size > 0 %>
+<%# Lista de links. %>
+<% if @contents.size > 0 %>
+  <%= render :partial => "shared/sub-tabs" %>
+  <hr class="list-separator">
+  <div class="content-section">
+    <% if @user.teacher? && @space %>
+      <ul class="list-mix suggestions">
+        <% @suggestions.each do |suggestion| %>
+          <li class="list-mix-item" id="<%= suggestion.id %>">
+            <div class="list-mix-inner">
+              <span><%= suggestion.owner.name %> indicou o seguinte conteúdo para a disciplina</span>
+              <%= link_to "Recusar", content_add_to_path(content_id: suggestion, commit: "recusar"),
+                class: "button-danger pull-right", method: :post, remote: true %>
+              <%= link_to "Aceitar", content_add_to_path(content_id: suggestion, commit: "aceitar"),
+                class: "button-success pull-right", method: :post, remote: true %>
+              <%= link_to suggestion.name, content_path(suggestion) %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
     <ul class="list-button list-subject">
       <% @contents.each do |content| %>
         <li class="list-button-item link-container">
@@ -37,6 +38,6 @@
 <%# Nenhum link criado. %>
 <% else %>
   <div class="content-section">
-    <%= render "shared/message-block", :type => "info", :close => false, :message => "Você ainda não possui nenhum link. Adicione seu primeiro link clicando no botão abaixo.", :button => link_to("Adicionar link", new_content_path, :class => "button-primary") %>
+    <%= render "shared/message-block", :type => "info", :close => false, :message => "#{subject(@space)} ainda não possui nenhum link. Adicione o primeiro link clicando no botão abaixo.", :button => link_to("Adicionar link", new_content_path, :class => "button-primary") %>
   </div>
 <% end %>
