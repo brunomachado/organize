@@ -51,7 +51,7 @@ class Content < ActiveRecord::Base
     minute = time % 60
 
     if (hour == 0 && minute == 0)
-      "Não informado"
+      "Desconhecido"
     else
       if hour > 0
         hour = "#{hour} horas "
