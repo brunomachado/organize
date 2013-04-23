@@ -35,4 +35,9 @@ class Content < ActiveRecord::Base
   def self.is_valid_rating_value?(value)
     value.between?(MIN_RATING, MAX_RATING)
   end
+
+  def get_rating_by(user)
+    self.evaluations.where(source_id: user.id, source_type: "User",
+                           reputation_name: "rating").first.value
+  end
 end
