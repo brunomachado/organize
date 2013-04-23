@@ -68,13 +68,15 @@
           <label class="control-checkbox" rel="tooltip" title="Marcando esta opção o link será adicionado à disciplina ao invés da lista pessoal">
             <%= check_box_tag(:add_link_to_space) %> Adicionar link à disciplina.
           </label>
+          <label class="control-checkbox" rel="tooltip" title="Marcando esta opção o link será publicado no Mural da Disciplina se a opção acima também tiver sido marcada">
+            <%= check_box_tag(:post_wall) %> Postar no mural da Disciplina.
+          </label>
           <%= hidden_field_tag :space_id, current_space.id %>
         </div>
       </div>
     <% end %>
 
     <%# TODO: Visibilidade. %>
-    <%# TODO: Postar link no mural da disciplina. %>
 
     <div class="control-group row">
       <div class="span10">

@@ -33,6 +33,11 @@ class ReduClient
     connection.get("api/spaces/#{@space_id}")
   end
 
+  def post_wall_space(canvas)
+    attrs = { :status => { :text => "Existe um novo link em nosso Canvas! Acesse: http://www.redu.com.br/espacos/#{@space_id}/canvas/#{canvas}" } }
+    connection.post("api/spaces/#{@space_id}/statuses", attrs)
+  end
+
   def update_role
     response = connection.get("api/spaces/#{@space_id}/users?role=member")
     body = JSON.parse(response.body)

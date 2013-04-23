@@ -46,6 +46,12 @@ class ContentsController < ApplicationController
       if params[:add_link_to_space]
         Space.find(params[:space_id].to_s).contents << @content
         @content.accept!
+
+        if params[:post_wall]
+          client = ReduClient.new(current_user.token, current_space.uid)
+          client.post_wall_space(params[:redu_lecture_id])
+        end
+
         redirect_to space_contents_path(current_space)
       else
         @user.contents << @content
