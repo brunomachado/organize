@@ -1,5 +1,5 @@
 <div class="content-section content-title clearfix">
-  <a class="button-default pull-left back" href="#">Voltar</a>
+  <%= link_to 'Voltar', :back, class: "button-default pull-left back" %>
   <h3 class="pull-left"><%= @content.name %></h3>
   <ul class="content-rating pull-left">
     <%= render partial: "stars" %>
