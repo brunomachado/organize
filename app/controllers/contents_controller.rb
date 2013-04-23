@@ -17,6 +17,8 @@ class ContentsController < ApplicationController
     if params[:bests]
       reputations = Content.find_with_reputation(:rating, :all, order: 'rating desc')
       @contents = reputations & @contents
+    elsif params[:time]
+      @contents = @contents.order(:study_estimated_time)
     else
       @contents = @contents.order(:created_at).reverse_order
     end

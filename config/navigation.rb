@@ -21,8 +21,10 @@ SimpleNavigation::Configuration.run do |navigation|
 
         subtabs.item :last_updates, "Últimos adicionados", contents_path, class: "filter",
           highlights_on: %r(\A/contents\z)
-        subtabs.item :bests, "Melhores avaliados", contents_path(bests: true), class: "filter"
-        subtabs.item :less_time, "Menor tempo", "#", class: "filter"
+        subtabs.item :bests, "Melhores avaliados", contents_path(bests: true),
+          class: "filter"
+        subtabs.item :less_time, "Menor tempo", contents_path(time: true),
+          class: "filter"
       end
     primary.item :space_links, 'Disciplina', space_contents_path(current_space),
       class: "tab",
@@ -36,7 +38,8 @@ SimpleNavigation::Configuration.run do |navigation|
           highlights_on: %r(spaces/#{current_space.id}/contents\z)
         subtabs.item :bests, "Melhores avaliados",
           space_contents_path(current_space, bests: true), class: "filter"
-        subtabs.item :less_time, "Menor tempo", "#", class: "filter"
+        subtabs.item :less_time, "Menor tempo",
+          space_contents_path(current_space, time: true), class: "filter"
       end
     primary.item :new_link, 'Adicionar link', new_content_path,
       class: "tab",
