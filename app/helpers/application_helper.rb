@@ -1,3 +1,4 @@
+#coding: utf-8
 module ApplicationHelper
   def concave_errors_for(object, method)
     errors = object.errors[method].collect do |msg|
