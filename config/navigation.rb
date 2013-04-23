@@ -16,12 +16,12 @@ SimpleNavigation::Configuration.run do |navigation|
       link: { class: "tab-title icon-profile-lightblue_16_18-before",
               title: "Meus links" },
       details: { text: 'Todos seus links', class: 'tab-sub-title legend' } do |subtabs|
-        subtabs.dom_class = 'tab-buttons'
-        subtabs.selected_class = 'tab-button-active'
+        subtabs.dom_class = 'filters'
+        subtabs.selected_class = 'filter-active'
 
-        subtabs.item :last_updates, "Últimos adicionados", contents_path, class: "tab-button"
-        subtabs.item :bests, "Melhores avaliados", contents_path(bests: true), class: "tab-button"
-        subtabs.item :less_time, "Menor tempo", "#", class: "tab-button"
+        subtabs.item :last_updates, "Últimos adicionados", contents_path, class: "filter"
+        subtabs.item :bests, "Melhores avaliados", contents_path(bests: true), class: "filter"
+        subtabs.item :less_time, "Menor tempo", "#", class: "filter"
       end
     primary.item :space_links, 'Disciplina', space_contents_path(current_space),
       class: "tab",

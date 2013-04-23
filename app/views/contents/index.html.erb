@@ -1,7 +1,7 @@
-<%= render :partial => "shared/sub-tabs" %>
-<hr class="list-separator">
-<div class="content-section">
-  <% if @contents.size > 0 %>
+<% if @contents.size > 0 %>
+  <%= render :partial => "shared/sub-tabs" %>
+  <hr class="list-separator">
+  <div class="content-section">
     <% if @user.teacher? %>
       <ul class="list-mix suggestions">
         <% @space.suggestions.each do |suggestion| %>
@@ -29,11 +29,13 @@
         </li>
       <% end %>
     </ul>
-    <%# TODO: Implementar paginação. %>
-    <%= render :partial => "shared/pagination" %>
+  </div>
+  <%# TODO: Implementar paginação. %>
+  <%= render :partial => "shared/pagination" %>
 
-  <%# Nenhum link criado. %>
-  <% else %>
+<%# Nenhum link criado. %>
+<% else %>
+  <div class="content-section">
     <%= render "shared/message-block", :type => "info", :close => false, :message => "Você ainda não possui nenhum link. Adicione seu primeiro link clicando no botão abaixo.", :button => link_to("Adicionar link", new_content_path, :class => "button-primary") %>
-  <% end %>
-</div>
+  </div>
+<% end %>
