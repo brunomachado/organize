@@ -15,7 +15,7 @@ class ContentsController < ApplicationController
 
   def show
     @content = Content.find(params[:id].to_s)
-    @app_rating = @content.reputation_for(:rating)
+    @content_rating = @content.reputation_for(:rating)
     @evaluations = @content.evaluators_for(:rating).count
     @evaluated = @content.has_evaluation?(:rating, current_user)
     @user_rating = @content.get_rating_by(current_user) if @evaluated
