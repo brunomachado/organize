@@ -45,6 +45,8 @@ class ContentsController < ApplicationController
     @content.owner = @user
 
     if @content.save
+      flash[:notice] = "O link <strong>#{@content.name}</strong> foi adicionado."
+
       if params[:add_link_to_space]
         Space.find(params[:space_id].to_s).contents << @content
         @content.accept!

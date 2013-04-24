@@ -7,6 +7,12 @@
     <%= csrf_meta_tag %>
   </head>
   <body>
+    <% if flash[:notice] %>
+      <div class="system-message message-success fade in">
+        <span data-dismiss="alert" class="message-close">×</span>
+        <p><strong>Muito bem!</strong> <%= raw(flash[:notice]) %></p>
+      </div>
+    <% end %>
     <div id="modal-welcome" class="modal hide">
       <div class="modal-header modal-header-gray">
         <h3>Bem-vindo ao Organize</h3>

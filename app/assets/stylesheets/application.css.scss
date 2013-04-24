@@ -17,6 +17,17 @@
 // Variáveis do UI-components.
 @import "ui-components/variables";
 
+.modal-header +
+.modal-body { padding: 20px; }
+
+.content-section .order-by {
+  text-align: center;
+  color: $gray5;
+  margin-bottom: 10px;
+}
+
+.system-message { top: 107px; }
+
 form label.error {
   color: $red2;
   font-size: 11px;
