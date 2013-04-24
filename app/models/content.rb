@@ -64,7 +64,13 @@ class Content < ActiveRecord::Base
         hour = ""
       end
 
-      "#{hour}#{minute} minutos"
+      if minute > 0
+        minute = "#{minute} minutos"
+      else
+        minute = ""
+      end
+
+      "#{hour}#{minute}"
     end
   end
 end
