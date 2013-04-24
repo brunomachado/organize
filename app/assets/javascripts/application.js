@@ -17,6 +17,7 @@
 //= require jquery.autosize.min
 //= require placeholder-polyfill.min
 //= require bootstrap-redu
+//= require jquery.cookie
 
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
@@ -104,5 +105,15 @@ $(function() {
     } else {
       $submit.prop("disabled", true);
     }
+  });
+
+  var warned = $.cookie("welcome");
+  if (!warned) {
+    $("#modal-welcome").modal("show");
+  }
+
+  $("#modal-welcome .button-default").click(function(){
+      $.cookie("welcome", true, { path: "/" });
+      $("#modal-welcome").modal("hide");
   });
 });

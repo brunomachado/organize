@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Organize</title>
-  <%= stylesheet_link_tag "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
-
-<%= render :partial => "shared/header" %>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>Organize</title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="modal-welcome" class="modal hide">
+      <div class="modal-header modal-header-gray">
+        <h3>Bem-vindo ao Organize</h3>
+      </div>
+      <div class="modal-body">
+        <p>Seja bem-vindo ao Organize. Esta ferramenta foi criada com o objetivo de ajudar professores e alunos a compartilharem links de apoio que auxiliem o estudo.</p>
+        <p>Organize seus links de estudo e tenha sempre guardados os links importantes recomendado pelo professor. Comente e discuta com seus amigos de classe.</p>
+      </div>
+      <div class="modal-footer">
+        <button data-dismiss="modal" class="button-default">Entrar</button>
+      </div>
+    </div>
+    <%= yield %>
+  </body>
 </html>
