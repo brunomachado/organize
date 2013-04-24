@@ -8,3 +8,10 @@ pt-BR:
       book: 'Livro'
       application: 'Aplicação'
       other: 'Outro'
+  activerecord:
+    errors:
+      models:
+        content:
+          attributes:
+            link:
+              taken: "Este link já existe."
