@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :user_content_associations, dependent: :destroy
   has_many :contents, through: :user_content_associations
 
-  attr_accessible :email, :name, :last_name, :token, :uid
+  attr_accessible :email, :name, :last_name, :token, :uid, :role
 
   def self.create_with_omniauth(auth)
     create! do |user|

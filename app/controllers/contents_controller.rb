@@ -1,6 +1,8 @@
 class ContentsController < ApplicationController
   def root
     current_space
+    client = ReduClient.new(current_user.token, current_space.uid)
+    client.update_role(current_user.uid)
     redirect_to contents_path
   end
 

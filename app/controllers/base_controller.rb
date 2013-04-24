@@ -42,9 +42,6 @@ class BaseController < ActionController::Base
       @space = Space.find_by_uid(params[:redu_space_id]) ||
         create_with_omniauth
 
-      client = ReduClient.new(current_user.token,
-                              params[:redu_space_id], current_user.uid)
-      client.update_role
       session[:space_id] = @space.id
     end
   end

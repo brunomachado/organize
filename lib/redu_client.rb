@@ -1,8 +1,7 @@
 class ReduClient
-  def initialize(access_token, space_id, user_uid=nil)
+  def initialize(access_token, space_id)
     @space_id = space_id
     @access_token = access_token
-    @user_uid = user_uid
   end
 
   def create_canvas(url, name)
@@ -38,19 +37,19 @@ class ReduClient
     connection.post("api/spaces/#{@space_id}/statuses", attrs)
   end
 
-  def update_role
+  def update_role(user_uid)
     response = connection.get("api/spaces/#{@space_id}/users?role=member")
     body = JSON.parse(response.body)
 
     selection = []
     unless body.empty?
-      selection = body.select{ |item| item["id"] == @user_uid }
+      selection = body.select{ |item| item["id"] == user_uid }
     end
 
     if selection.empty?
-      User.find_by_uid(@user_uid).update_attributes({ role: "teacher" })
+      User.find_by_uid(user_uid).update_attributes({ role: "teacher" })
     else
-      User.find_by_uid(@user_uid).update_attributes({ role: "member" })
+      User.find_by_uid(user_uid).update_attributes({ role: "member" })
     end
   end
 
