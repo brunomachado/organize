@@ -2,7 +2,7 @@
 <%= render_navigation(level: 1) %>
 
 <div class="content-section content-title clearfix">
-  <%= link_to 'Voltar', :back, class: "button-default pull-left back" %>
+  <%= link_to 'Voltar', :contents, class: "button-default pull-left back" %>
   <h3 class="pull-left"><%= @content.name %></h3>
   <ul class="content-rating pull-left">
     <%= render partial: "stars" %>

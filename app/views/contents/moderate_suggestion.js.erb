@@ -1,0 +1,4 @@
+$("#<%= @content.id %>").slideToggle();
+var $list = $(".list-button");
+var $newList = $("<%= escape_javascript render 'contents/list', contents: @contents %>");
+$list.replaceWith($newList);

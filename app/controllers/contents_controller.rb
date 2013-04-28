@@ -87,11 +87,13 @@ class ContentsController < ApplicationController
     @user = current_user
     @user.contents << @content
 
+    flash[:notice] = "O link <strong>#{@content.name}</strong> foi adicionado aos seus links."
     redirect_to content_path(@content)
   end
 
   def add_to
     @content = Content.find(params[:content_id].to_s)
+    @contents = current_space.contents
 
     case params[:commit]
     when "recusar"
@@ -100,7 +102,11 @@ class ContentsController < ApplicationController
       @content.accept!
     end
 
-    render :js => "window.location = '#{ space_contents_path(current_space) }'"
+    respond_to do |format|
+      format.js do
+        render 'contents/moderate_suggestion'
+      end
+    end
   end
 
   def rate

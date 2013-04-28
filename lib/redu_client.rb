@@ -33,7 +33,7 @@ class ReduClient
   end
 
   def post_wall_space(canvas)
-    attrs = { :status => { :text => "Existe um novo link em nosso Canvas! Acesse: http://www.redu.com.br/espacos/#{@space_id}/canvas/#{canvas}" } }
+    attrs = { :status => { :text => "Novo link adicionado ao Organize! Acesse: http://www.redu.com.br/espacos/#{@space_id}/canvas/#{canvas}" } }
     connection.post("api/spaces/#{@space_id}/statuses", attrs)
   end
 

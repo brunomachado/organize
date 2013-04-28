@@ -94,7 +94,7 @@ $(function() {
     }
   });
 
-  // Habilita o botão de submissão e os campos estão validados.
+  // Habilita o botão de submissão se os campos estão validados.
   $("#content_link,#content_name").on("focusout", function() {
     var $contentLink = $("#content_link");
     var $contentName = $("#content_name");
@@ -105,6 +105,18 @@ $(function() {
     } else {
       $submit.prop("disabled", true);
     }
+  });
+
+  // Mostra checkbox de postagem no mural apenas se o link
+  // criado for de uma disciplina
+  $("#post-wall").hide();
+  $("#add_link_to_space").on("click", function(){
+      if($(this).is(':checked')){
+          $("#post-wall").show();
+      }
+      else{
+          $("#post-wall").hide();
+      }
   });
 
   var warned = $.cookie("welcome");

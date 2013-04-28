@@ -26,22 +26,8 @@
         <% end %>
       </ul>
     <% end %>
-    <ul class="list-button list-subject">
-      <% @contents.each do |content| %>
-        <li class="list-button-item link-container">
-          <%# TODO: Diferenciar ícone dependendo do tipo de link. %>
-          <%= link_to content.name, content_path(content), :class => "list-button-link link-target icon-text-page-lightblue_16_18-before" %>
-          <div class="list-lecture-info">
-            <%= content_tag(:span, content.comments.size, :rel => "tooltip", :title => pluralize(content.comments.size, "Comentário"), :class => "wall-stats icon-wall-gray_16_18-before") %>
-            <%# Rating. %>
-            <%= render "shared/content_rating_stars", rating: content.reputation_for(:rating).to_i %>
-            <%= content_tag :span, content.study_estimated_time, :rel => "tooltip", :title => "Tempo estimado de estudo" %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
+    <%= render "list", contents: @contents %>
   </div>
-
 <%# Nenhum link criado. %>
 <% else %>
   <div class="content-section">
