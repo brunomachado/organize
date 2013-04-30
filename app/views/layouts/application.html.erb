@@ -7,24 +7,9 @@
     <%= csrf_meta_tag %>
   </head>
   <body>
-    <% if flash[:notice] %>
-      <div class="system-message message-success fade in">
-        <span data-dismiss="alert" class="message-close">×</span>
-        <p><strong>Muito bem!</strong> <%= raw(flash[:notice]) %></p>
-      </div>
-    <% end %>
-    <div id="modal-welcome" class="modal hide">
-      <div class="modal-header modal-header-gray">
-        <h3>Bem-vindo ao Organize</h3>
-      </div>
-      <div class="modal-body">
-        <p>Seja bem-vindo ao Organize. Esta ferramenta foi criada com o objetivo de ajudar professores e alunos a compartilharem links de apoio que auxiliem o estudo.</p>
-        <p>Organize seus links de estudo e tenha sempre guardados os links importantes recomendado pelo professor. Comente e discuta com seus amigos de classe.</p>
-      </div>
-      <div class="modal-footer">
-        <button data-dismiss="modal" class="button-default">Entrar</button>
-      </div>
-    </div>
+    <%= render "shared/flash", flash: flash %>
+    <%= render "shared/welcome-modal" %>
+    <%= render "shared/header" %>
     <%= yield %>
   </body>
 </html>

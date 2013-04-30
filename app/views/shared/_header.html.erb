@@ -1,0 +1,9 @@
+<div class="content-section">
+  <ul class="header-breadcrumb">
+    <li class="header-breadcrumb-item">
+      <h2 class="header-title"><%= yield :title %></h2>
+    </li>
+  </ul>
+  <%= link_to "Adicionar link", new_content_path, class: "button-primary pull-right", rel: "tooltip", title: "Adicione um novo link pessoal ou à disciplina" %>
+</div>
+<%= render_navigation(level: 1) %>

@@ -1,5 +1,6 @@
-<h2 class="title header-title">Adicionar link</h2>
-<%= render_navigation(level: 1) %>
+<% content_for :title do %>
+  Adicionar link
+<% end %>
 
 <div class="content-section">
   <%= form_for(@content, url: contents_path, :html => { :class => "form-horizontal" }) do |f| %>

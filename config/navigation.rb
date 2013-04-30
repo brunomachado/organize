@@ -26,10 +26,10 @@ SimpleNavigation::Configuration.run do |navigation|
         subtabs.item :less_time, "Menor tempo", contents_path(time: true),
           class: "filter"
       end
-    primary.item :space_links, 'Disciplina', space_contents_path(current_space),
+    primary.item :space_links, 'Links da Disciplina', space_contents_path(current_space),
       class: "tab",
       link: { class: "tab-title icon-space-lightblue_16_18-before",
-              title: "Disciplina" } do |subtabs|
+              title: "Links da Disciplina" } do |subtabs|
         subtabs.dom_class = 'filters'
         subtabs.selected_class = 'filter-active'
 
@@ -41,9 +41,5 @@ SimpleNavigation::Configuration.run do |navigation|
         subtabs.item :less_time, "Menor tempo",
           space_contents_path(current_space, time: true), class: "filter"
       end
-    primary.item :new_link, 'Adicionar link', new_content_path,
-      class: "tab",
-      link: { class: "tab-title icon-file-lightblue_16_18-before",
-              title: "Adicionar link" }
   end
 end

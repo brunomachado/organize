@@ -1,9 +1,10 @@
-<% if @space %>
-  <h2 class="title header-title">Disciplina</h2>
-<% else %>
-  <h2 class="title header-title">Meus links</h2>
+<% content_for :title do %>
+  <% if @space %>
+    Links da Disciplina
+  <% else %>
+    Meus links
+  <% end %>
 <% end %>
-<%= render_navigation(level: 1) %>
 
 <%# Lista de links. %>
 <% if @contents.size > 0 %>

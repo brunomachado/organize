@@ -7758,26 +7758,20 @@ form label.error {
 
 /* line 52, ../../app/assets/stylesheets/application.css.scss */
 .header-title {
-  padding: 20px 20px;
-  color: #4DADD6;
+  color: #4dadd6;
 }
 
-/* line 57, ../../app/assets/stylesheets/application.css.scss */
-.content-section {
-  padding: 10px 20px;
-}
-
-/* line 61, ../../app/assets/stylesheets/application.css.scss */
+/* line 54, ../../app/assets/stylesheets/application.css.scss */
 .content-title {
   padding-bottom: 0;
 }
 
-/* line 65, ../../app/assets/stylesheets/application.css.scss */
+/* line 58, ../../app/assets/stylesheets/application.css.scss */
 .content-title .back {
   margin-bottom: 10px;
 }
 
-/* line 69, ../../app/assets/stylesheets/application.css.scss */
+/* line 62, ../../app/assets/stylesheets/application.css.scss */
 .content-title h3 {
   clear: left;
   padding-top: 6px;
@@ -7785,70 +7779,70 @@ form label.error {
   color: #6D6E6F;
 }
 
-/* line 76, ../../app/assets/stylesheets/application.css.scss */
+/* line 69, ../../app/assets/stylesheets/application.css.scss */
 .content-rating {
   margin: 0;
   padding-top: 9px;
 }
 
-/* line 81, ../../app/assets/stylesheets/application.css.scss */
+/* line 74, ../../app/assets/stylesheets/application.css.scss */
 .content-rating li {
   float: left;
   padding-right: 3px;
 }
 
-/* line 86, ../../app/assets/stylesheets/application.css.scss */
+/* line 79, ../../app/assets/stylesheets/application.css.scss */
 .content-details {
   margin: 0;
 }
 
-/* line 90, ../../app/assets/stylesheets/application.css.scss */
+/* line 83, ../../app/assets/stylesheets/application.css.scss */
 .content-details li {
   color: #6D6E6F;
   clear: both;
 }
 
-/* line 95, ../../app/assets/stylesheets/application.css.scss */
+/* line 88, ../../app/assets/stylesheets/application.css.scss */
 .content-details li p {
   width: 600px;
 }
 
-/* line 99, ../../app/assets/stylesheets/application.css.scss */
+/* line 92, ../../app/assets/stylesheets/application.css.scss */
 .content-details li + li {
   padding-top: 10px;
 }
 
-/* line 103, ../../app/assets/stylesheets/application.css.scss */
+/* line 96, ../../app/assets/stylesheets/application.css.scss */
 .content-comments {
   color: #B3B3B3;
 }
-/* line 105, ../../app/assets/stylesheets/application.css.scss */
+/* line 98, ../../app/assets/stylesheets/application.css.scss */
 .content-comments h6 {
   margin-bottom: 10px;
 }
-/* line 106, ../../app/assets/stylesheets/application.css.scss */
+/* line 99, ../../app/assets/stylesheets/application.css.scss */
 .content-comments .post {
   margin-bottom: 20px;
 }
-/* line 107, ../../app/assets/stylesheets/application.css.scss */
+/* line 100, ../../app/assets/stylesheets/application.css.scss */
 .content-comments .comment + .comment {
   margin-top: 5px;
 }
 
-/* line 110, ../../app/assets/stylesheets/application.css.scss */
+/* line 103, ../../app/assets/stylesheets/application.css.scss */
 li {
   list-style-type: none;
 }
 
-/* line 113, ../../app/assets/stylesheets/application.css.scss */
+/* line 106, ../../app/assets/stylesheets/application.css.scss */
 .suggestions .list-mix-inner {
   padding: 10px;
 }
-/* line 115, ../../app/assets/stylesheets/application.css.scss */
+/* line 108, ../../app/assets/stylesheets/application.css.scss */
 .suggestions .list-mix-inner a {
   display: block;
 }
-/* line 117, ../../app/assets/stylesheets/application.css.scss */
+/* line 110, ../../app/assets/stylesheets/application.css.scss */
 .suggestions .button-success {
   margin-right: 5px;
 }

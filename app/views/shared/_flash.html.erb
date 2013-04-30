@@ -1,0 +1,6 @@
+<% if flash[:notice] %>
+  <div class="system-message message-success fade in">
+    <span data-dismiss="alert" class="message-close">×</span>
+    <p><strong>Muito bem!</strong> <%= raw(flash[:notice]) %></p>
+  </div>
+<% end %>
