@@ -119,6 +119,7 @@ $(function() {
       }
   });
 
+  // Modal de boas-vindas.
   var warned = $.cookie("welcome");
   if (!warned) {
     $("#modal-welcome").modal("show");
@@ -128,4 +129,33 @@ $(function() {
       $.cookie("welcome", true, { path: "/" });
       $("#modal-welcome").modal("hide");
   });
+
+  // Comportamento de hover in/out das estrelas.
+  var unratedStar = "icon-star-full-lightgray_16_18";
+  var ratedStar = "icon-star-full-gray_16_18";
+  var userRatedStar = "icon-star-full-blue_16_18";
+  var starsWrapper = "oer-stars-user-rated";
+
+  $("body")
+    .on("mouseenter", "." + starsWrapper + " a", function() {
+      var index = $(this).html();
+      var $stars = $(this).parents("." + starsWrapper).find("a");
+
+      $stars.each(function(i) {
+        if (i < index) {
+          $(this).removeClass(unratedStar + " " + ratedStar).addClass(userRatedStar);
+        }
+      });
+    })
+    .on("mouseleave", "." + starsWrapper + " a", function() {
+      var index = $(this).html();
+      var $stars = $(this).parents("." + starsWrapper).find("a");
+
+      // Retorna as classes originais das estrelas.
+      $stars.each(function(i) {
+        if (i < index) {
+          $(this).removeClass(userRatedStar).addClass("icon-star-full-" + $(this).data("star-color") + "_16_18");
+        }
+      });
+    });
 });
