@@ -19,7 +19,9 @@
 <hr class="list-separator">
 <div class="content-section clearfix">
   <ul class="content-details">
-    <li class="icon-file-lightblue_16_18-before"><a href='http://<%= @content.link %>'><%= @content.link %></a></li>
+    <li class="icon-file-lightblue_16_18-before">
+      <%= link_to @content.link, @content.link, target: "_blank", title: @content.name %>
+    </li>
     <% if @content.description %>
       <li><span class="icon-doubt-topic-lightblue_16_18-before show text-replacement pull-left">Detalhes</span><p class="pull-left"><%= @content.description %></p></li>
     <% end %>
